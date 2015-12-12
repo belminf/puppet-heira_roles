@@ -1,4 +1,4 @@
-# Test servers
+# Glues Hiera data to actual resources
 
 class hiera_roles(
     $user_group_resource,
@@ -29,6 +29,7 @@ class hiera_roles(
     $firewall_holes = hiera($firewall_holes_key)
     create_resources($firewall_hole_resource, $firewall_holes)
 
+    # Create file ACLs
     $file_acls = hiera($file_acls_key)
     create_resources($file_acl_resource, $file_acls)
 }
